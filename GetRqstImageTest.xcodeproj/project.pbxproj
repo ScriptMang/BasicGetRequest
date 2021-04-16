@@ -79,9 +79,9 @@
 		74DF810D261FBDD6002C0B2F = {
 			isa = PBXGroup;
 			children = (
-				74DF8118261FBDD6002C0B2F /* jsonGetImageTest */,
-				74DF812F261FBDD7002C0B2F /* jsonGetImageTestTests */,
-				74DF813A261FBDD7002C0B2F /* jsonGetImageTestUITests */,
+				74DF8118261FBDD6002C0B2F /* PrimaryFolder */,
+				74DF812F261FBDD7002C0B2F /* Tests */,
+				74DF813A261FBDD7002C0B2F /* UITests */,
 				74DF8117261FBDD6002C0B2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		74DF8118261FBDD6002C0B2F /* jsonGetImageTest */ = {
+		74DF8118261FBDD6002C0B2F /* PrimaryFolder */ = {
 			isa = PBXGroup;
 			children = (
 				74DF8119261FBDD6002C0B2F /* AppDelegate.swift */,
@@ -107,25 +107,25 @@
 				74DF8124261FBDD7002C0B2F /* LaunchScreen.storyboard */,
 				74DF8127261FBDD7002C0B2F /* Info.plist */,
 			);
-			path = jsonGetImageTest;
+			path = PrimaryFolder;
 			sourceTree = "<group>";
 		};
-		74DF812F261FBDD7002C0B2F /* jsonGetImageTestTests */ = {
+		74DF812F261FBDD7002C0B2F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				74DF8130261FBDD7002C0B2F /* jsonGetImageTestTests.swift */,
 				74DF8132261FBDD7002C0B2F /* Info.plist */,
 			);
-			path = jsonGetImageTestTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		74DF813A261FBDD7002C0B2F /* jsonGetImageTestUITests */ = {
+		74DF813A261FBDD7002C0B2F /* UITests */ = {
 			isa = PBXGroup;
 			children = (
 				74DF813B261FBDD7002C0B2F /* jsonGetImageTestUITests.swift */,
 				74DF813D261FBDD7002C0B2F /* Info.plist */,
 			);
-			path = jsonGetImageTestUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
