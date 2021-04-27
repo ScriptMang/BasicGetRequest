@@ -19,16 +19,16 @@ class ViewController: UIViewController {
         let heightRatio = target.height / curr.height
         let ratio = [widthRatio, heightRatio]
 
-        let scaleFactor = min(ratio[0], ratio[1])
+        let resizeConstant = min(ratio[0], ratio[1])
         var scaledImgSize = CGSize(width: 0, height: 0)
-        scaledImgSize.width = curr.width * CGFloat(scaleFactor)
-        scaledImgSize.height = curr.height * CGFloat(scaleFactor)
+        scaledImgSize.width = curr.width * CGFloat(resizeConstant)
+        scaledImgSize.height = curr.height * CGFloat(resizeConstant)
         return  scaledImgSize
     }
 
     private func createTargetImage(preferredSize: CGSize, image: UIImage) -> UIImage {
-        let randerer = UIGraphicsImageRenderer(size: preferredSize)
-        let scaledImage = randerer.image { _ in
+        let renderer = UIGraphicsImageRenderer(size: preferredSize)
+        let scaledImage = renderer.image { _ in
             image.draw(in: CGRect(origin: .zero, size: preferredSize))
         }
         return scaledImage
@@ -51,15 +51,15 @@ private func getImage(){
         let url = URL(string: site)!
         let session = URLSession.shared
         let task = session.downloadTask(with: url) {
-            (fileURL, resp, err) in
-            if let url = fileURL, let d = try? Data(contentsOf: url) {
+             (fileURL, resp, err) in
+             if let url = fileURL, let d = try? Data(contentsOf: url) {
                 let im = UIImage(data: d)
                 DispatchQueue.main.async {
-                    let targetSize = CGSize(width: 500, height: 500)
+                    let idealSize = CGSize(width: 500, height: 500)
                     if let downloadedImage = im  {
                         let originalSize = downloadedImage.size
                         let scaledBallSize =
-                        self.getScaledImgSize(target: targetSize, curr: originalSize)
+                        self.getScaledImgSize(target: idealSize, curr: originalSize)
                         let newImage =
                         self.createTargetImage(preferredSize: scaledBallSize,
                                                image: downloadedImage)
