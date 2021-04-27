@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getImage()
-        // Do any additional setup after loading the view.
     }
 
     private func getScaledImgSize(target: CGSize, curr: CGSize) -> CGSize {
@@ -27,12 +26,6 @@ class ViewController: UIViewController {
         return  scaledImgSize
     }
 
-//    func reDrawImg (img: UIImage, scaledImgSize: CGSize) {
-//        let newImg = UIGraphicsImageRenderer(size: scaledImgSize)
-//        newImg.image { _ in
-//            img.draw(in: CGRect(origin: .zero, size: scaledImgSize))
-//        }
-//    }
     private func createTargetImage(preferredSize: CGSize, image: UIImage) -> UIImage {
         let randerer = UIGraphicsImageRenderer(size: preferredSize)
         let scaledImage = randerer.image { _ in
@@ -40,7 +33,6 @@ class ViewController: UIViewController {
         }
         return scaledImage
     }
-
 
     private func setupImageConstraints(scaledImage: UIImage) {
         let ballImgView = UIImageView(image: scaledImage)
