@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  jsonGetImageTest
 //
-***REMOVED***
+//  Created by Andy Peralta on 4/8/21.
 //
 
 import UIKit

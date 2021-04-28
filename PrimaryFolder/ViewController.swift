@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  jsonGetImageTest
 //
-***REMOVED***
+//  Created by Andy Peralta on 4/8/21.
 //
 
 import UIKit
@@ -14,24 +14,12 @@ class ViewController: UIViewController {
         getImage()
     }
 
-    private func getScaledImgSize(target: CGSize, curr: CGSize) -> CGSize {
-        let widthRatio = target.width / curr.width
-        let heightRatio = target.height / curr.height
-        let ratio = [widthRatio, heightRatio]
-
-        let resizeConstant = min(ratio[0], ratio[1])
-        var scaledImgSize = CGSize(width: 0, height: 0)
-        scaledImgSize.width = curr.width * CGFloat(resizeConstant)
-        scaledImgSize.height = curr.height * CGFloat(resizeConstant)
-        return  scaledImgSize
-    }
-
-    private func createTargetImage(preferredSize: CGSize, image: UIImage) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: preferredSize)
-        let scaledImage = renderer.image { _ in
+    private func createNewImage(preferredSize: CGSize, image: UIImage) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: preferredSize, format: image.imageRendererFormat)
+        let redrawnImage = renderer.image { _ in
             image.draw(in: CGRect(origin: .zero, size: preferredSize))
         }
-        return scaledImage
+        return redrawnImage
     }
 
     private func setupImageConstraints(scaledImage: UIImage) {
@@ -55,13 +43,10 @@ private func getImage(){
              if let url = fileURL, let d = try? Data(contentsOf: url) {
                 let im = UIImage(data: d)
                 DispatchQueue.main.async {
-                    let idealSize = CGSize(width: 500, height: 500)
+                    let  scaledBallSize = CGSize(width: 500, height: 500)
                     if let downloadedImage = im  {
-                        let originalSize = downloadedImage.size
-                        let scaledBallSize =
-                        self.getScaledImgSize(target: idealSize, curr: originalSize)
                         let newImage =
-                        self.createTargetImage(preferredSize: scaledBallSize,
+                        self.createNewImage(preferredSize: scaledBallSize,
                                                image: downloadedImage)
                         self.setupImageConstraints(scaledImage: newImage)
                     }

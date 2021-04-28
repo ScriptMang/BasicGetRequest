@@ -2,7 +2,7 @@
 //  jsonGetImageTestUITests.swift
 //  jsonGetImageTestUITests
 //
-***REMOVED***
+//  Created by Andy Peralta on 4/8/21.
 //
 
 import XCTest
