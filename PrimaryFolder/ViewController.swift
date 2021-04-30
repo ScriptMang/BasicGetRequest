@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  jsonGetImageTest
-//
-//  Created by Andy Peralta on 4/8/21.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
